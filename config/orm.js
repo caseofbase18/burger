@@ -1,7 +1,11 @@
-const connection = require("./config/connection.js");
+const connection = require("./connection.js");
 
-function selectAll()
-function insertOne()
-function updateOne()
+
+
+const orm = {
+    selectAll: function() { },
+    insertOne: function() { },
+    updateOne: function() { }
+}
 
 module.exports = orm;
