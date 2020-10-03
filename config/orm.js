@@ -33,16 +33,19 @@ function printQuestionMarks(num) {
   }
 
 
-const orm = {
+var orm = {
     selectAll: function (table, cb) {
-        const queryString = `SELECT * FROM ${table}`
+        var queryString = "SELECT * FROM " + table + ";";
         connection.query(queryString, function (err, result) {
-            if (err) throw err;
+            if (err) {
+                throw err;
+            }
             cb(result);
-        })
+        });
     },
+
     insertOne: function (table, cols, vals, cb) {
-        var queryString = `INSERT INTO ${table}`;
+        var queryString = "INSERT INTO " + table;
 
         queryString += " (";
         queryString += cols.toString();
@@ -57,12 +60,12 @@ const orm = {
             if (err) {
                 throw err;
             }
-
             cb(result);
         });
     },
+
     updateOne: function (table, objColVals, condition, cb) {
-        var queryString = `UPDATE ${table}`;
+        var queryString = "UPDATE " + table;
 
         queryString += " SET ";
         queryString += objToSql(objColVals);
@@ -78,16 +81,17 @@ const orm = {
             cb(result);
         });
     },
+
     deleteOne: function (table, condition, cb) {
-        var queryString = `DELETE FROM ${table}`;
+        var queryString = "DELETE FROM " + table;
         queryString += " WHERE ";
         queryString += condition;
+        console.log(queryString);
 
         connection.query(queryString, function (err, result) {
             if (err) {
                 throw err;
             }
-
             cb(result);
         });
     }
