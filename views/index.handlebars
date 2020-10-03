@@ -1,12 +1,18 @@
+<body>
+
 <h1>Eat-Da-Burger!</h1>
+
+<h2>Choose a burger to save for later or devour now! You can also add any burger of your choice to the list!</h2>
+
+<img src="../assets/images/vegburg.jpeg" alt="vegburg">
 
 <h2>Burgers to Save</h2>
 
 <ul>
   {{#each burgers}}
-    {{#unless devoured}}
-      {{> burgers/burger-block devoured=true}}
-    {{/unless}}
+  {{#unless devoured}}
+  {{> burgers/burger-block devoured=true}}
+  {{/unless}}
   {{/each}}
 </ul>
 
@@ -14,13 +20,14 @@
 
 <ul>
   {{#each burgers}}
-    {{#if devoured}}
-      {{> burgers/burger-block devoured=false}}
-    {{/if}}
+  {{#if devoured}}
+  {{> burgers/burger-block devoured=false}}
+  {{/if}}
   {{/each}}
 </ul>
 
 <h2>Add a Burger</h2>
+
 <form class="create-form">
 
   <div class="form-group">
@@ -32,7 +39,10 @@
     <label for="devoured">Save for Later or Devour?</label><br>
     <input type="radio" name="type" value="1" checked> Burgers to Devour!<br>
     <input type="radio" name="type" value="0"> Burgers to Save!
+    <br>
+    <button type="submit">Add Burger</button>
   </div>
 
-  <button type="submit">Add Burger</button>
 </form>
+
+</body>
