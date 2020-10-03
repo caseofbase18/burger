@@ -5,9 +5,9 @@ $(function() {
       var newType = $(this).data("newtype");
   
       var newTypeBurger = {
-        type: newType
+        devoured: newType
       };
-  
+  console.log(newTypeBurger);
       // Send the PUT request.
       $.ajax("/api/burgers/" + id, {
         type: "PUT",
@@ -21,13 +21,13 @@ $(function() {
       );
     });
   
-    $(".create-form").on("submit", function(event) {
+    $("#submit-button").on("click", function(event) {
       // Make sure to preventDefault on a submit event.
       event.preventDefault();
-  
+      console.log("i'm the js")
       var newBurger = {
-        name: $("#ca").val().trim(),
-        type: $("[name=type]:checked").val().trim()
+        burger_name: $("#ca").val().trim(),
+        devoured: $("[name=type]:checked").val().trim()
       };
   
       // Send the POST request.

@@ -8,19 +8,20 @@ const burger = {
     },
 
     insertOne: function(cols, vals, cb) {
-        orm.create("burgers", cols, vals, function(res) {
+        orm.insertOne("burgers", cols, vals, function(res) {
           cb(res);
         });
       },
 
       updateOne: function(objColVals, condition, cb) {
-        orm.update("burgers", objColVals, condition, function(res) {
+        console.log("i'm the model", objColVals)
+        orm.updateOne("burgers", objColVals, condition, function(res) {
           cb(res);
         });
       },
 
       deleteOne: function(condition, cb) {
-        orm.delete("burgers", condition, function(res) {
+        orm.deleteOne("burgers", condition, function(res) {
           cb(res);
         });
       }
